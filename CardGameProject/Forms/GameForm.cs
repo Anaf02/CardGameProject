@@ -8,13 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CardGameProject
+namespace CardGameProject.Forms
 {
-    public partial class Form1 : Form
+    public partial class GameForm : Form
     {
-        public Form1()
+        public GameForm()
         {
             InitializeComponent();
         }
+
+        private void rules_btn_Click(object sender, EventArgs e)
+        {
+            var rulesForm = new RulesForm();
+            rulesForm.Show();
+        }
     }
+   
 }
