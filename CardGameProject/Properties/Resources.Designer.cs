@@ -83,9 +83,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_1 {
+        internal static System.Drawing.Bitmap card_0 {
             get {
-                object obj = ResourceManager.GetObject("card_1", resourceCulture);
+                object obj = ResourceManager.GetObject("card_0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_10 {
+        internal static System.Drawing.Bitmap card_10g {
             get {
-                object obj = ResourceManager.GetObject("card_10", resourceCulture);
+                object obj = ResourceManager.GetObject("card_10g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_11 {
+        internal static System.Drawing.Bitmap card_10r {
             get {
-                object obj = ResourceManager.GetObject("card_11", resourceCulture);
+                object obj = ResourceManager.GetObject("card_10r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_12 {
+        internal static System.Drawing.Bitmap card_1g {
             get {
-                object obj = ResourceManager.GetObject("card_12", resourceCulture);
+                object obj = ResourceManager.GetObject("card_1g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_13 {
+        internal static System.Drawing.Bitmap card_1r {
             get {
-                object obj = ResourceManager.GetObject("card_13", resourceCulture);
+                object obj = ResourceManager.GetObject("card_1r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_14 {
+        internal static System.Drawing.Bitmap card_2g {
             get {
-                object obj = ResourceManager.GetObject("card_14", resourceCulture);
+                object obj = ResourceManager.GetObject("card_2g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_15 {
+        internal static System.Drawing.Bitmap card_2r {
             get {
-                object obj = ResourceManager.GetObject("card_15", resourceCulture);
+                object obj = ResourceManager.GetObject("card_2r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_16 {
+        internal static System.Drawing.Bitmap card_3g {
             get {
-                object obj = ResourceManager.GetObject("card_16", resourceCulture);
+                object obj = ResourceManager.GetObject("card_3g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_17 {
+        internal static System.Drawing.Bitmap card_3r {
             get {
-                object obj = ResourceManager.GetObject("card_17", resourceCulture);
+                object obj = ResourceManager.GetObject("card_3r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_18 {
+        internal static System.Drawing.Bitmap card_4g {
             get {
-                object obj = ResourceManager.GetObject("card_18", resourceCulture);
+                object obj = ResourceManager.GetObject("card_4g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_19 {
+        internal static System.Drawing.Bitmap card_4r {
             get {
-                object obj = ResourceManager.GetObject("card_19", resourceCulture);
+                object obj = ResourceManager.GetObject("card_4r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +193,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_2 {
+        internal static System.Drawing.Bitmap card_5g {
             get {
-                object obj = ResourceManager.GetObject("card_2", resourceCulture);
+                object obj = ResourceManager.GetObject("card_5g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +203,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_20 {
+        internal static System.Drawing.Bitmap card_5r {
             get {
-                object obj = ResourceManager.GetObject("card_20", resourceCulture);
+                object obj = ResourceManager.GetObject("card_5r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +213,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_21 {
+        internal static System.Drawing.Bitmap card_6g {
             get {
-                object obj = ResourceManager.GetObject("card_21", resourceCulture);
+                object obj = ResourceManager.GetObject("card_6g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +223,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_22 {
+        internal static System.Drawing.Bitmap card_6r {
             get {
-                object obj = ResourceManager.GetObject("card_22", resourceCulture);
+                object obj = ResourceManager.GetObject("card_6r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +233,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_3 {
+        internal static System.Drawing.Bitmap card_7g {
             get {
-                object obj = ResourceManager.GetObject("card_3", resourceCulture);
+                object obj = ResourceManager.GetObject("card_7g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +243,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_4 {
+        internal static System.Drawing.Bitmap card_7r {
             get {
-                object obj = ResourceManager.GetObject("card_4", resourceCulture);
+                object obj = ResourceManager.GetObject("card_7r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_5 {
+        internal static System.Drawing.Bitmap card_8g {
             get {
-                object obj = ResourceManager.GetObject("card_5", resourceCulture);
+                object obj = ResourceManager.GetObject("card_8g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +263,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_57 {
+        internal static System.Drawing.Bitmap card_8r {
             get {
-                object obj = ResourceManager.GetObject("card_57", resourceCulture);
+                object obj = ResourceManager.GetObject("card_8r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +273,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_6 {
+        internal static System.Drawing.Bitmap card_9g {
             get {
-                object obj = ResourceManager.GetObject("card_6", resourceCulture);
+                object obj = ResourceManager.GetObject("card_9g", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,29 +283,9 @@ namespace CardGameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap card_7 {
+        internal static System.Drawing.Bitmap card_9r {
             get {
-                object obj = ResourceManager.GetObject("card_7", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap card_8 {
-            get {
-                object obj = ResourceManager.GetObject("card_8", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap card_9 {
-            get {
-                object obj = ResourceManager.GetObject("card_9", resourceCulture);
+                object obj = ResourceManager.GetObject("card_9r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,16 +316,6 @@ namespace CardGameProject.Properties {
         internal static System.Drawing.Bitmap player1_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("player1_removebg_preview", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap player2 {
-            get {
-                object obj = ResourceManager.GetObject("player2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CardGameProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,15 @@ namespace CardGameProject.Forms
 {
     public partial class GameForm : Form
     {
+        private readonly Table table;
+
         public GameForm()
         {
             InitializeComponent();
-        }
+            table = new Table(this.Size);
+            table.Location = new Point(0, 0);
+            this.Controls.Add(table);
 
-        private void rules_btn_Click(object sender, EventArgs e)
-        {
-            var rulesForm = new RulesForm();
-            rulesForm.Show();
         }
     }
    

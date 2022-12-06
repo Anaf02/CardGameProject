@@ -1,18 +1,35 @@
 ﻿using CardGameProject.Properties;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CardGameProject.Classes
 {
     internal abstract class CardBase
     {
+        public CardColour colour;
         public int value { get; set; }
 
-        private Image cardBackPath = Resources.card_back;
+        protected Image cardBack = Resources.card_back;
+
+        public CardBase(CardColour colour, int value)
+        {
+            this.colour = colour;
+            if (colour == CardColour.Red)
+            {
+                this.value = -value;
+            }
+            else
+            {
+                if (colour == CardColour.Green)
+                {
+                    this.value = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Colour is invalid");
+                }
+            }
+        }
 
         public abstract Image GetImage(bool front);
     }

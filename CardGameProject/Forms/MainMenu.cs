@@ -14,8 +14,9 @@ namespace CardGameProject.Forms
     {
         public MainMenu()
         {
-            InitializeComponent();
             this.DoubleBuffered = true;
+            InitializeComponent();
+            
         }
 
         private void rules_btn_Click(object sender, EventArgs e)
