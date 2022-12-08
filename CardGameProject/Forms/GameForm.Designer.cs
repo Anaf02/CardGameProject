@@ -33,7 +33,7 @@
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GameForm";

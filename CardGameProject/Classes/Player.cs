@@ -11,6 +11,7 @@ namespace CardGameProject.Classes
         public string Name { get; }
         public int Wallet { get; private set; }
         public List<CardBase> Hand { get; private set; }
+        public bool ActionPerformed { get; set; }
 
         public Player(string name)
         {
