@@ -1,13 +1,15 @@
 ﻿using CardGameProject.Properties;
 using System;
 using System.Drawing;
+using System.Security;
 
 namespace CardGameProject.Classes
 {
     internal abstract class CardBase
     {
         public CardColour colour;
-        public int value { get; set; }
+
+        public int Value { get; private set; }
 
         protected Image cardBack = Resources.card_back;
 
@@ -16,13 +18,13 @@ namespace CardGameProject.Classes
             this.colour = colour;
             if (colour == CardColour.Red)
             {
-                this.value = -value;
+                Value = -value;
             }
             else
             {
                 if (colour == CardColour.Green)
                 {
-                    this.value = value;
+                    Value = value;
                 }
                 else
                 {

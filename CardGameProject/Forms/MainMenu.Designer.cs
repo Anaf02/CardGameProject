@@ -39,7 +39,7 @@
             // 
             this.rules_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rules_btn.BackColor = System.Drawing.Color.OldLace;
-            this.rules_btn.Location = new System.Drawing.Point(956, 536);
+            this.rules_btn.Location = new System.Drawing.Point(1024, 641);
             this.rules_btn.Name = "rules_btn";
             this.rules_btn.Size = new System.Drawing.Size(149, 44);
             this.rules_btn.TabIndex = 1;
@@ -51,7 +51,7 @@
             // 
             this.start_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.start_btn.BackColor = System.Drawing.Color.OldLace;
-            this.start_btn.Location = new System.Drawing.Point(502, 308);
+            this.start_btn.Location = new System.Drawing.Point(543, 371);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(231, 53);
             this.start_btn.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1238, 671);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1319, 797);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -86,7 +86,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Info;
-            this.label1.Location = new System.Drawing.Point(827, 52);
+            this.label1.Location = new System.Drawing.Point(881, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(395, 119);
             this.label1.TabIndex = 2;
@@ -99,7 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CardGameProject.Properties.Resources.backgimage_1920x1080;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1238, 671);
+            this.ClientSize = new System.Drawing.Size(1319, 797);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Name = "MainMenu";

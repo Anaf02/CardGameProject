@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CardGameProject.Classes
 {
@@ -13,20 +9,41 @@ namespace CardGameProject.Classes
         public List<CardBase> Hand { get; private set; }
         public bool ActionPerformed { get; set; }
 
+        public int LastBet { get; private set; }
+
         public Player(string name)
         {
             Name = name;
             Wallet = 5000;
             Hand = new List<CardBase>();
+            LastBet = 0;
         }
 
         public void AddMoney(int value)
         {
             Wallet += value;
         }
-        public void BetMoney(int value)
+
+        public int BetMoney(int value)
         {
-            Wallet -= value;
+            LastBet += value;
+
+            if (Wallet - value < 0)
+            {
+                value = Wallet;
+                Wallet = 0;
+            }
+            else
+            {
+                Wallet -= value;
+            }
+
+            return value;
+        }
+
+        public void ResetLastBet()
+        {
+            LastBet = 0;
         }
     }
 }

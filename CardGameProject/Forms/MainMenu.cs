@@ -37,7 +37,5 @@ namespace CardGameProject.Forms
         {
             this.Show();
         }
-
-        
     }
 }

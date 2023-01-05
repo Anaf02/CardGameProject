@@ -66,6 +66,18 @@
     <Compile Include="Classes\Three.cs" />
     <Compile Include="Classes\Two.cs" />
     <Compile Include="Classes\Zero.cs" />
+    <Compile Include="Forms\BetDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BetDialog.Designer.cs">
+      <DependentUpon>BetDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChooseCardDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChooseCardDialog.Designer.cs">
+      <DependentUpon>ChooseCardDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ConnectionScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     <Compile Include="Forms\RulesForm.Designer.cs">
       <DependentUpon>RulesForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\BetDialog.resx">
+      <DependentUpon>BetDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChooseCardDialog.resx">
+      <DependentUpon>ChooseCardDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConnectionScreen.resx">
       <DependentUpon>ConnectionScreen.cs</DependentUpon>
     </EmbeddedResource>
