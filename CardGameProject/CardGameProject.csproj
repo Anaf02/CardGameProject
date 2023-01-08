@@ -49,11 +49,14 @@
     <Compile Include="Classes\CardBase.cs" />
     <Compile Include="Classes\CardColourEnum.cs" />
     <Compile Include="Classes\CardFactory.cs" />
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\Dice.cs" />
     <Compile Include="Classes\Eight.cs" />
     <Compile Include="Classes\Five.cs" />
     <Compile Include="Classes\Four.cs" />
     <Compile Include="Classes\Game.cs" />
     <Compile Include="Classes\GamePhaseEnum.cs" />
+    <Compile Include="Classes\NetworkGame.cs" />
     <Compile Include="Classes\Nine.cs" />
     <Compile Include="Classes\One.cs" />
     <Compile Include="Classes\Player.cs" />
@@ -83,6 +86,12 @@
     </Compile>
     <Compile Include="Forms\ConnectionScreen.Designer.cs">
       <DependentUpon>ConnectionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DiceResultDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DiceResultDialog.Designer.cs">
+      <DependentUpon>DiceResultDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\GameForm.cs">
       <SubType>Form</SubType>
@@ -118,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConnectionScreen.resx">
       <DependentUpon>ConnectionScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DiceResultDialog.resx">
+      <DependentUpon>DiceResultDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
@@ -279,6 +291,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\card_1-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dice6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

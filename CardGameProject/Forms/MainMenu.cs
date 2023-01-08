@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CardGameProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,17 @@ namespace CardGameProject.Forms
         private void reshow_main_menu(object sender, EventArgs e)
         {
             this.Show();
+        }
+
+        private void btnLan_Click(object sender, EventArgs e)
+        {
+            var gameForm = new GameForm(true);
+            if (!gameForm.IsDisposed)
+            {
+                gameForm.FormClosed += reshow_main_menu;
+                gameForm.Show();
+                this.Hide();
+            }
         }
     }
 }

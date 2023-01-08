@@ -28,37 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.IP_txtbx = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxIp = new System.Windows.Forms.TextBox();
             this.confirmIP_btn = new System.Windows.Forms.Button();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // IP_txtbx
+            // textBoxIp
             // 
-            this.IP_txtbx.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.IP_txtbx.Location = new System.Drawing.Point(377, 369);
-            this.IP_txtbx.Name = "IP_txtbx";
-            this.IP_txtbx.Size = new System.Drawing.Size(304, 26);
-            this.IP_txtbx.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(378, 337);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Please type the IP address:";
+            this.textBoxIp.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxIp.Location = new System.Drawing.Point(377, 369);
+            this.textBoxIp.Name = "textBoxIp";
+            this.textBoxIp.Size = new System.Drawing.Size(304, 26);
+            this.textBoxIp.TabIndex = 0;
             // 
             // confirmIP_btn
             // 
-            this.confirmIP_btn.Location = new System.Drawing.Point(606, 400);
+            this.confirmIP_btn.Location = new System.Drawing.Point(606, 455);
             this.confirmIP_btn.Name = "confirmIP_btn";
             this.confirmIP_btn.Size = new System.Drawing.Size(75, 38);
             this.confirmIP_btn.TabIndex = 2;
             this.confirmIP_btn.Text = "Confirm";
             this.confirmIP_btn.UseVisualStyleBackColor = true;
+            this.confirmIP_btn.Click += new System.EventHandler(this.confirmIP_btn_Click);
+            // 
+            // textBoxPort
+            // 
+            this.textBoxPort.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxPort.Location = new System.Drawing.Point(377, 401);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(304, 26);
+            this.textBoxPort.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(335, 368);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "IP:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(318, 400);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Port:";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(503, 455);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 38);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.textBoxName.Location = new System.Drawing.Point(377, 328);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(304, 26);
+            this.textBoxName.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(301, 328);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 25);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Name:";
             // 
             // ConnectionScreen
             // 
@@ -67,9 +119,14 @@
             this.BackgroundImage = global::CardGameProject.Properties.Resources.lobby;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(778, 544);
-            this.Controls.Add(this.confirmIP_btn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.IP_txtbx);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxPort);
+            this.Controls.Add(this.confirmIP_btn);
+            this.Controls.Add(this.textBoxIp);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConnectionScreen";
@@ -81,8 +138,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox IP_txtbx;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxIp;
         private System.Windows.Forms.Button confirmIP_btn;
+        private System.Windows.Forms.TextBox textBoxPort;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Label label1;
     }
 }

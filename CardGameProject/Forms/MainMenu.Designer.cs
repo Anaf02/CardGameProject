@@ -32,6 +32,7 @@
             this.start_btn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLan = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,9 +68,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.start_btn, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.rules_btn, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.start_btn, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnLan, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -92,6 +94,18 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "SABACC";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLan
+            // 
+            this.btnLan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnLan.BackColor = System.Drawing.Color.OldLace;
+            this.btnLan.Location = new System.Drawing.Point(543, 637);
+            this.btnLan.Name = "btnLan";
+            this.btnLan.Size = new System.Drawing.Size(231, 53);
+            this.btnLan.TabIndex = 3;
+            this.btnLan.Text = "Start LAN Game";
+            this.btnLan.UseVisualStyleBackColor = false;
+            this.btnLan.Click += new System.EventHandler(this.btnLan_Click);
             // 
             // MainMenu
             // 
@@ -116,6 +130,7 @@
         private System.Windows.Forms.Button start_btn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLan;
     }
 }
 

@@ -8,17 +8,27 @@ namespace CardGameProject.Classes
 {
     internal class Game
     {
-        private readonly Table table;
-        private Stack<CardBase> Deck;
-        private Stack<CardBase> DiscardPile;
-        private int SabaccPot;
-        private int MainPot;
-        private Player One, Two;
-        private GamePhase currentPhase;
-        private int currentRound;
-        private int playerTurn;
-        private Player currentPlayer;
-        private Random rand;
+        protected readonly Table table;
+
+        protected Stack<CardBase> Deck;
+
+        protected Stack<CardBase> DiscardPile;
+
+        protected int SabaccPot;
+
+        protected int MainPot;
+
+        protected Player One, Two;
+
+        protected GamePhase currentPhase;
+
+        protected int currentRound;
+
+        protected int playerTurn;
+
+        protected Player currentPlayer;
+
+        protected Random rand;
 
         public Game(Table table)
         {
@@ -27,7 +37,7 @@ namespace CardGameProject.Classes
             AssingButtonHandlers();
         }
 
-        public void AssingButtonHandlers()
+        public virtual void AssingButtonHandlers()
         {
             table.btnNewGame.Click += btnNewGame_Click;
             table.btnCheck.Click += btnCheck_Click;
@@ -39,9 +49,15 @@ namespace CardGameProject.Classes
             table.btnSwapFromDrawPile.Click += btnSwapFromDrawPile_Click;
             table.btnSwapFromDiscardPile.Click += btnSwapFromDiscardPile_Click;
             table.btnRollDice.Click += btnRollDice_Click;
+            table.btnWinPlayer1.Click += btnWinPlayer1_Click;
+            table.btnWinPlayer2.Click += btnWinPlayer2_Click;
+
+            table.btnWinPlayer1.Text = "Player 1 Wins!";
+            table.btnWinPlayer2.Text = "Player 2 Wins!";
         }
 
-        public void CreateDeck()
+
+        public virtual void CreateDeck()
         {
             Deck = new Stack<CardBase>();
             for (int j = 0; j < 3; j++)
@@ -55,9 +71,10 @@ namespace CardGameProject.Classes
             Deck.Push(CardFactory.GenerateCard(0, CardColour.Green));
             Deck.Push(CardFactory.GenerateCard(0, CardColour.Green));
             Deck = ShuffleDeck(ShuffleDeck(Deck));
+            var x = Deck.Select(y=>y.Value).ToArray();
         }
 
-        public Stack<CardBase> ShuffleDeck(Stack<CardBase> cards)
+        public virtual Stack<CardBase> ShuffleDeck(Stack<CardBase> cards)
         {
             Random rand = new Random();
             var shuffledCards = new List<CardBase>(cards);
@@ -73,20 +90,7 @@ namespace CardGameProject.Classes
             return new Stack<CardBase>(shuffledCards);
         }
 
-        private void btnNewGame_Click(object sender, EventArgs e)
-        {
-            var nameDialog = new NameDialog();
-            var result = nameDialog.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                table.DisplayNames(nameDialog.Player1Name, nameDialog.Player2Name);
-                One = new Player(nameDialog.Player1Name);
-                Two = new Player(nameDialog.Player2Name);
-                this.StartGame();
-            }
-        }
-
-        public void DealCards()
+        public virtual void DealCards()
         {
             One.Hand.Clear();
             Two.Hand.Clear();
@@ -98,25 +102,20 @@ namespace CardGameProject.Classes
             DiscardPile.Push(Deck.Pop());
         }
 
-        public void StartGame()
+        public virtual void StartGame()
         {
             DiscardPile = new Stack<CardBase>();
             CreateDeck();
+            
+            InitialPhase();
+        }
+
+        protected virtual void InitialPhase()
+        {
             DealCards();
             table.DisplayHands(One.Hand, Two.Hand);
             table.DisplayDiscardPile(DiscardPile.Peek());
-            InitialPhase();
-            Random r = new Random();
-            playerTurn = r.Next(1, 3);
-            table.DisplayCurrentGamePhase(currentRound, currentPhase);
-            table.DisplaySabaccPot(SabaccPot);
-            table.DisplayMainPot(MainPot);
-            table.DisplayWallets(One, Two);
-            table.DisplayCurrentPlayerTurn(playerTurn);
-        }
-
-        private void InitialPhase()
-        {
+            playerTurn = rand.Next(1, 3);
             currentPhase = GamePhase.Play;
             currentRound = 1;
             One.BetMoney(150);
@@ -125,9 +124,14 @@ namespace CardGameProject.Classes
             MainPot += 200;
             One.ResetLastBet();
             Two.ResetLastBet();
+            table.DisplayCurrentGamePhase(currentRound, currentPhase);
+            table.DisplaySabaccPot(SabaccPot);
+            table.DisplayMainPot(MainPot);
+            table.DisplayWallets(One, Two);
+            table.DisplayCurrentPlayerTurn(playerTurn);
         }
 
-        private void ChangeGamePhase()
+        protected virtual void ChangeGamePhase()
         {
             switch (currentPhase)
             {
@@ -163,14 +167,14 @@ namespace CardGameProject.Classes
             table.DisplayCurrentGamePhase(currentRound, currentPhase);
         }
 
-        private void ChangePlayerTurn()
+        protected virtual void ChangePlayerTurn()
         {
             GetPlayer().ActionPerformed = true;
             playerTurn = playerTurn == 1 ? 2 : 1;
             table.DisplayCurrentPlayerTurn(playerTurn);
         }
 
-        private Player GetPlayer(bool opposingPlayer = false)
+        protected virtual Player GetPlayer(bool opposingPlayer = false)
         {
             if (!opposingPlayer)
             {
@@ -202,12 +206,25 @@ namespace CardGameProject.Classes
             }
         }
 
-        private bool AllPlayersPerformedActions()
+        protected virtual bool AllPlayersPerformedActions()
         {
             return One.ActionPerformed && Two.ActionPerformed;
         }
 
-        public void btnBet_Click(object sender, EventArgs e)
+        protected virtual void btnNewGame_Click(object sender, EventArgs e)
+        {
+            var nameDialog = new NameDialog();
+            var result = nameDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                table.DisplayNames(nameDialog.Player1Name, nameDialog.Player2Name);
+                One = new Player(nameDialog.Player1Name);
+                Two = new Player(nameDialog.Player2Name);
+                this.StartGame();
+            }
+        }
+
+        public virtual void btnBet_Click(object sender, EventArgs e)
         {
             currentPlayer = GetPlayer();
             var opposingPlayer = GetPlayer(true);
@@ -232,7 +249,7 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnCall_Click(object sender, EventArgs e)
+        public virtual void btnCall_Click(object sender, EventArgs e)
         {
             currentPlayer = GetPlayer();
             var opposingPlayer = GetPlayer(true);
@@ -255,7 +272,7 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnJunk_Click(object sender, EventArgs e)
+        public virtual void btnJunk_Click(object sender, EventArgs e)
         {
             GetPlayer(true).AddMoney(MainPot);
             MainPot = 0;
@@ -272,7 +289,7 @@ namespace CardGameProject.Classes
             table.DisplayCurrentPlayerTurn(playerTurn);
         }
 
-        public void btnDrawCard_Click(object sender, EventArgs e)
+        public virtual void btnDrawCard_Click(object sender, EventArgs e)
         {
             currentPlayer = GetPlayer();
 
@@ -296,7 +313,7 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnStand_Click(object sender, EventArgs e)
+        public virtual void btnStand_Click(object sender, EventArgs e)
         {
             ChangePlayerTurn();
 
@@ -306,7 +323,7 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnCheck_Click(object sender, EventArgs e)
+        public virtual void btnCheck_Click(object sender, EventArgs e)
         {
             if (One.LastBet == Two.LastBet)
             {
@@ -319,17 +336,17 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnSwapFromDrawPile_Click(object sender, EventArgs e)
+        public virtual void btnSwapFromDrawPile_Click(object sender, EventArgs e)
         {
             currentPlayer = GetPlayer();
-            var chosenCardDialog = new ChooseCardDialog(currentPlayer.Hand.Count);
-            var result = chosenCardDialog.ShowDialog();
+            var chooseCardDialog = new ChooseCardDialog(currentPlayer.Hand.Count);
+            var result = chooseCardDialog.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                DiscardPile.Push(currentPlayer.Hand.ElementAt(chosenCardDialog.CardId - 1));
-                currentPlayer.Hand.RemoveAt(chosenCardDialog.CardId - 1);
-                currentPlayer.Hand.Insert(chosenCardDialog.CardId - 1, Deck.Pop());
+                DiscardPile.Push(currentPlayer.Hand.ElementAt(chooseCardDialog.CardId - 1));
+                currentPlayer.Hand.RemoveAt(chooseCardDialog.CardId - 1);
+                currentPlayer.Hand.Insert(chooseCardDialog.CardId - 1, Deck.Pop());
                 ChangePlayerTurn();
             }
             table.DisplayHands(One.Hand, Two.Hand);
@@ -340,7 +357,7 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnSwapFromDiscardPile_Click(object sender, EventArgs e)
+        public virtual void btnSwapFromDiscardPile_Click(object sender, EventArgs e)
         {
             currentPlayer = GetPlayer();
             var chosenCardDialog = new ChooseCardDialog(currentPlayer.Hand.Count);
@@ -362,13 +379,16 @@ namespace CardGameProject.Classes
             }
         }
 
-        public void btnRollDice_Click(object sender, EventArgs e)
+        public virtual void btnRollDice_Click(object sender, EventArgs e)
         {
             One.ResetLastBet();
             Two.ResetLastBet();
 
             var firstDice = rand.Next(1, 7);
             var secondDice = rand.Next(1, 7);
+
+            var diceResultDialog = new DiceResultDialog(firstDice, secondDice);
+            diceResultDialog.ShowDialog();
 
             if (firstDice == secondDice)
             {
@@ -393,6 +413,35 @@ namespace CardGameProject.Classes
             }
             table.DisplayHands(One.Hand, Two.Hand);
             table.DisplayDiscardPile(DiscardPile.Peek());
+            ChangeGamePhase();
+        }
+
+        public virtual void btnWinPlayer1_Click(object sender, EventArgs e)
+        {
+            One.AddMoney(MainPot);
+            MainPot = 0;
+            if (MessageBox.Show("Do you have Sabacc?", "Sabacc Hand", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                One.AddMoney(SabaccPot);
+                SabaccPot = 0;
+            }
+            table.DisplayMainPot(MainPot);
+            table.DisplaySabaccPot(SabaccPot);
+            table.DisplayWallets(One, Two);
+            ChangeGamePhase();
+        }
+        public virtual void btnWinPlayer2_Click(object sender, EventArgs e)
+        {
+            Two.AddMoney(MainPot);
+            MainPot = 0;
+            if (MessageBox.Show("Do you have Sabacc?", "Sabacc Hand", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Two.AddMoney(SabaccPot);
+                SabaccPot = 0;
+            }
+            table.DisplayMainPot(MainPot);
+            table.DisplaySabaccPot(SabaccPot);
+            table.DisplayWallets(One,Two);
             ChangeGamePhase();
         }
     }

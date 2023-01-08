@@ -16,14 +16,33 @@ namespace CardGameProject.Forms
         private readonly Table table;
         private readonly Game game;
 
-        public GameForm()
+        public GameForm(bool isNetwork = false)
         {
             InitializeComponent();
             table = new Table(this.Size);
             table.Location = new Point(0, 0);
             this.Controls.Add(table);
 
-            game = new Game(table);
+            if (isNetwork)
+            {
+                var connectionScreen = new ConnectionScreen();
+
+                if (connectionScreen.ShowDialog() == DialogResult.OK)
+                {
+                    Client client = new Client();
+                    client.Connect(connectionScreen.IpAddress, connectionScreen.Port);
+                    client.Write(connectionScreen.PlayerName);
+                    game = new NetworkGame(table, client, connectionScreen.PlayerName);
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                game = new Game(table);
+            }
         }
     }
    

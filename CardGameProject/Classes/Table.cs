@@ -33,6 +33,8 @@ namespace CardGameProject.Classes
         public Button btnSwapFromDrawPile;
         public Button btnSwapFromDiscardPile;
         public Button btnRollDice;
+        public Button btnWinPlayer1;
+        public Button btnWinPlayer2;
 
         public Table(Size size)
         {
@@ -338,9 +340,32 @@ namespace CardGameProject.Classes
 
             pictureTable.Controls.Add(btnRollDice);
             //
+            // btnWinPlayer1
+            //
+            btnWinPlayer1 = new Button();
+            btnWinPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            btnWinPlayer1.Location = new System.Drawing.Point(250, 250);
+            btnWinPlayer1.Size = new System.Drawing.Size(130, 60);
+            btnWinPlayer1.Text = "Player1 Wins";
+            btnWinPlayer1.UseVisualStyleBackColor = true;
+
+            pictureTable.Controls.Add(btnWinPlayer1);
+
+            //
+            // btnWinPlayer2
+            //
+            btnWinPlayer2 = new Button();
+            btnWinPlayer2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            btnWinPlayer2.Location = new System.Drawing.Point(250, 330);
+            btnWinPlayer2.Size = new System.Drawing.Size(130, 60);
+            btnWinPlayer2.Text = "Player2 Wins";
+            btnWinPlayer2.UseVisualStyleBackColor = true;
+
+            pictureTable.Controls.Add(btnWinPlayer2);
+            //
             // labelCurrentTurn
             //
-            labelCurrentTurn=new Label();
+            labelCurrentTurn =new Label();
             labelCurrentTurn.AutoSize = false;
             labelCurrentTurn.Size = new Size(20, 20);
             labelCurrentTurn.BackColor = Color.Red;
@@ -372,6 +397,8 @@ namespace CardGameProject.Classes
             btnCall.Show();
             btnJunk.Show();
             btnRollDice.Hide();
+            btnWinPlayer1.Hide();
+            btnWinPlayer2.Hide();
         }
 
         public void UpdateButtonsForPlayPhase()
@@ -385,6 +412,8 @@ namespace CardGameProject.Classes
             btnCall.Hide();
             btnJunk.Hide();
             btnRollDice.Hide();
+            btnWinPlayer1.Hide();
+            btnWinPlayer2.Hide();
         }
 
         public void UpdateButtonsForSpikePhase()
@@ -398,8 +427,24 @@ namespace CardGameProject.Classes
             btnCall.Hide();
             btnJunk.Hide();
             btnRollDice.Show();
+            btnWinPlayer1.Hide();
+            btnWinPlayer2.Hide();
         }
 
+        public void UpdateButtonsForRevealPhase()
+        {
+            btnDrawCard.Hide();
+            btnStand.Hide();
+            btnSwapFromDrawPile.Hide();
+            btnSwapFromDiscardPile.Hide();
+            btnCheck.Hide();
+            btnBet.Hide();
+            btnCall.Hide();
+            btnJunk.Hide();
+            btnRollDice.Hide();
+            btnWinPlayer1.Show();
+            btnWinPlayer2.Show();
+        }
         public void ShowAllButtons()
         {
             btnDrawCard.Show();
@@ -411,6 +456,9 @@ namespace CardGameProject.Classes
             btnCall.Show();
             btnJunk.Show();
             btnRollDice.Show();
+            btnWinPlayer1.Show();
+            btnWinPlayer2.Show();
+
         }
         public void DisplaySabaccPot(int value)
         {
