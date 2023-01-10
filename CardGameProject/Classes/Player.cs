@@ -11,6 +11,8 @@ namespace CardGameProject.Classes
 
         public int LastBet { get; private set; }
 
+        public bool CardKept { get; set; }
+
         public Player(string name)
         {
             Name = name;

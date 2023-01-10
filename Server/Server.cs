@@ -18,11 +18,11 @@ namespace Server
         public TcpClient Client2 { get; set;}
 
         public string Player1Name { get; set; }
+
         public string Player2Name { get; set; }
 
         public Server(Int32 portNumber) 
         {
-
             tcpListener = new TcpListener(IPAddress.Any, portNumber);
         }
 
@@ -66,8 +66,8 @@ namespace Server
             string start = "start";
             BinaryWriter binaryWriter1 = new BinaryWriter(Client1.GetStream());
             BinaryWriter binaryWriter2 = new BinaryWriter(Client2.GetStream());
-            binaryWriter1.Write($"name-{Player2Name}");
-            binaryWriter2.Write($"name-{Player1Name}");
+            binaryWriter1.Write($"name!2!{Player2Name}");
+            binaryWriter2.Write($"name!1!{Player1Name}");
             binaryWriter1.Flush();
             binaryWriter2.Flush();
 

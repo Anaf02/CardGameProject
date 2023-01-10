@@ -45,6 +45,7 @@
             this.textBoxIp.Name = "textBoxIp";
             this.textBoxIp.Size = new System.Drawing.Size(304, 26);
             this.textBoxIp.TabIndex = 0;
+            this.textBoxIp.Text = "127.0.0.1";
             // 
             // confirmIP_btn
             // 
@@ -63,16 +64,17 @@
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(304, 26);
             this.textBoxPort.TabIndex = 3;
+            this.textBoxPort.Text = "13000";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(335, 368);
+            this.label2.Location = new System.Drawing.Point(257, 368);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 25);
+            this.label2.Size = new System.Drawing.Size(114, 25);
             this.label2.TabIndex = 4;
-            this.label2.Text = "IP:";
+            this.label2.Text = "IP Address:";
             // 
             // label3
             // 

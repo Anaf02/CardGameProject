@@ -30,6 +30,7 @@ namespace CardGameProject.Classes
 
         protected Random rand;
 
+
         public Game(Table table)
         {
             rand = new Random();
@@ -59,6 +60,7 @@ namespace CardGameProject.Classes
 
         public virtual void CreateDeck()
         {
+            DiscardPile = new Stack<CardBase>();
             Deck = new Stack<CardBase>();
             for (int j = 0; j < 3; j++)
             {
@@ -71,7 +73,6 @@ namespace CardGameProject.Classes
             Deck.Push(CardFactory.GenerateCard(0, CardColour.Green));
             Deck.Push(CardFactory.GenerateCard(0, CardColour.Green));
             Deck = ShuffleDeck(ShuffleDeck(Deck));
-            var x = Deck.Select(y=>y.Value).ToArray();
         }
 
         public virtual Stack<CardBase> ShuffleDeck(Stack<CardBase> cards)
@@ -104,7 +105,6 @@ namespace CardGameProject.Classes
 
         public virtual void StartGame()
         {
-            DiscardPile = new Stack<CardBase>();
             CreateDeck();
             
             InitialPhase();
@@ -129,6 +129,7 @@ namespace CardGameProject.Classes
             table.DisplayMainPot(MainPot);
             table.DisplayWallets(One, Two);
             table.DisplayCurrentPlayerTurn(playerTurn);
+            table.Refresh();
         }
 
         protected virtual void ChangeGamePhase()
@@ -300,8 +301,13 @@ namespace CardGameProject.Classes
             {
                 DiscardPile.Push(currentPlayer.Hand.Last());
                 currentPlayer.Hand.RemoveAt(currentPlayer.Hand.Count - 1);
+                currentPlayer.CardKept = false;
             }
-
+            else
+            {
+                currentPlayer.CardKept = true;
+            }
+            
             table.DisplayHands(One.Hand, Two.Hand);
             table.DisplayDiscardPile(DiscardPile.Peek());
 

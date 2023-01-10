@@ -11,23 +11,23 @@ namespace CardGameProject.Classes
 {
     internal class Client
     {
-        public TcpClient TcpClient { get; set; }
+        public TcpClient tcpClient { get; set; }
 
         public Client()
         {
-            TcpClient = new TcpClient();
+            tcpClient = new TcpClient();
         }
 
         public void Connect(string IP, Int32 port)
         {
-            TcpClient.Connect(IPAddress.Parse(IP), port);
+            tcpClient.Connect(IPAddress.Parse(IP), port);
         }
 
         public void Write(string data)
         {
-            if (TcpClient.Connected)
+            if (tcpClient.Connected)
             {
-                BinaryWriter binaryWriter = new BinaryWriter(TcpClient.GetStream());
+                BinaryWriter binaryWriter = new BinaryWriter(tcpClient.GetStream());
                 binaryWriter.Write(data);
                 binaryWriter.Flush();
             }
@@ -35,8 +35,8 @@ namespace CardGameProject.Classes
 
         public string Read()
         {
-            BinaryReader binaryReader = new BinaryReader(TcpClient.GetStream());
-            if (TcpClient.Connected)
+            BinaryReader binaryReader = new BinaryReader(tcpClient.GetStream());
+            if (tcpClient.Connected)
             {
                 return binaryReader.ReadString();
             }
