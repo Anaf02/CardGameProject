@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server
 {
@@ -13,15 +9,15 @@ namespace Server
     {
         public TcpListener tcpListener { get; set; }
 
-        public TcpClient Client1 { get; set;}
+        public TcpClient Client1 { get; set; }
 
-        public TcpClient Client2 { get; set;}
+        public TcpClient Client2 { get; set; }
 
         public string Player1Name { get; set; }
 
         public string Player2Name { get; set; }
 
-        public Server(Int32 portNumber) 
+        public Server(Int32 portNumber)
         {
             tcpListener = new TcpListener(IPAddress.Any, portNumber);
         }
@@ -47,7 +43,7 @@ namespace Server
                 Player2Name = binaryReader.ReadString();
                 return Client2.Connected;
             }
-            return false ;
+            return false;
         }
 
         public void Disconnect()
@@ -63,33 +59,32 @@ namespace Server
 
         public void StartGame()
         {
-            string start = "start";
             BinaryWriter binaryWriter1 = new BinaryWriter(Client1.GetStream());
             BinaryWriter binaryWriter2 = new BinaryWriter(Client2.GetStream());
+
             binaryWriter1.Write($"name!2!{Player2Name}");
             binaryWriter2.Write($"name!1!{Player1Name}");
             binaryWriter1.Flush();
             binaryWriter2.Flush();
 
+            string start = "start";
             binaryWriter1.Write(start);
             binaryWriter1.Flush();
-
+            //transfer cards
+            BinaryReader binaryReader1 = new BinaryReader(Client1.GetStream());
+            binaryWriter2.Write(binaryReader1.ReadString());
         }
 
         public void TransferData()
         {
-            NetworkStream networkStream1 = Client1.GetStream();
-            NetworkStream networkStream2 = Client2.GetStream();
+            BinaryWriter binaryWriter1 = new BinaryWriter(Client1.GetStream());
+            BinaryWriter binaryWriter2 = new BinaryWriter(Client2.GetStream());
+            BinaryReader binaryReader1 = new BinaryReader(Client1.GetStream());
+            BinaryReader binaryReader2 = new BinaryReader(Client2.GetStream());
             while (Client1.Connected && Client2.Connected)
             {
-                if (networkStream1.DataAvailable)
-                {
-                    networkStream1.CopyTo(networkStream2);
-                }
-                if (networkStream2.DataAvailable)
-                {
-                    networkStream2.CopyTo(networkStream1);
-                }
+                binaryWriter2.Write(binaryReader1.ReadString());
+                binaryWriter1.Write(binaryReader2.ReadString());
             }
         }
 

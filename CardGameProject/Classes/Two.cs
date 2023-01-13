@@ -1,10 +1,5 @@
 ﻿using CardGameProject.Properties;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CardGameProject.Classes
 {
@@ -13,6 +8,7 @@ namespace CardGameProject.Classes
         public Two(CardColour colour) : base(colour, 2)
         {
         }
+
         public override Image GetImage(bool front)
         {
             if (front)

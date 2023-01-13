@@ -218,11 +218,11 @@ namespace CardGameProject.Classes
             //
             // labelPlayer1Wallet
             //
-            labelPlayer1Wallet=new Label();
+            labelPlayer1Wallet = new Label();
             labelPlayer1Wallet.Location = new Point(40, 172);
             labelPlayer1Wallet.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
             labelPlayer1Wallet.AutoSize = true;
-            labelPlayer1Wallet.ForeColor= Color.Black;
+            labelPlayer1Wallet.ForeColor = Color.Black;
             labelPlayer1Wallet.BackColor = Color.White;
             Controls.Add(labelPlayer1Wallet);
             labelPlayer1Wallet.BringToFront();
@@ -365,7 +365,7 @@ namespace CardGameProject.Classes
             //
             // labelCurrentTurn
             //
-            labelCurrentTurn =new Label();
+            labelCurrentTurn = new Label();
             labelCurrentTurn.AutoSize = false;
             labelCurrentTurn.Size = new Size(20, 20);
             labelCurrentTurn.BackColor = Color.Red;
@@ -445,6 +445,7 @@ namespace CardGameProject.Classes
             btnWinPlayer1.Show();
             btnWinPlayer2.Show();
         }
+
         public void ShowAllButtons()
         {
             btnDrawCard.Show();
@@ -458,8 +459,8 @@ namespace CardGameProject.Classes
             btnRollDice.Show();
             btnWinPlayer1.Show();
             btnWinPlayer2.Show();
-
         }
+
         public void DisplaySabaccPot(int value)
         {
             labelSabaccPot.Text = $"Sabacc Pot: {value} credits";
@@ -482,10 +483,10 @@ namespace CardGameProject.Classes
             labelPlayer1Wallet.Show();
             labelPlayer2Wallet.Show();
         }
+
         internal void DisplayCurrentGamePhase(int currentRound, GamePhase currentPhase)
         {
-
-            labelCurrentGamePhase.Text=$"{currentPhase} Phase - Round: {currentRound}";
+            labelCurrentGamePhase.Text = $"{currentPhase} Phase - Round: {currentRound}";
             labelCurrentGamePhase.Show();
 
             switch (currentPhase)
@@ -493,15 +494,19 @@ namespace CardGameProject.Classes
                 case GamePhase.Bet:
                     UpdateButtonsForBetPhase();
                     break;
+
                 case GamePhase.Play:
                     UpdateButtonsForPlayPhase();
                     break;
+
                 case GamePhase.Spike:
                     UpdateButtonsForSpikePhase();
                     break;
+
                 case GamePhase.Reveal:
                     ShowAllButtons();
                     break;
+
                 default:
                     break;
             }
@@ -521,7 +526,7 @@ namespace CardGameProject.Classes
             labelNameP2.Show();
         }
 
-        public void DisplayHands(List<CardBase> handplayer1, List<CardBase> handplayer2)
+        public void DisplayHands(List<CardBase> handplayer1, List<CardBase> handplayer2, int myPlayer = 0)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -530,22 +535,23 @@ namespace CardGameProject.Classes
             }
             for (int i = 0; i < handplayer1.Count; i++)
             {
-                pictureBoxPlayer1Hand[i].Image = ResizeImage(handplayer1[i].GetImage(true), pictureBoxPlayer1Hand[i].Width, pictureBoxPlayer1Hand[i].Height);
+                pictureBoxPlayer1Hand[i].Image = ResizeImage(handplayer1[i].GetImage(myPlayer == 0 || myPlayer == 1), pictureBoxPlayer1Hand[i].Width, pictureBoxPlayer1Hand[i].Height);
             }
             for (int i = 0; i < handplayer2.Count; i++)
             {
-                pictureBoxPlayer2Hand[i].Image = ResizeImage(handplayer2[i].GetImage(true), pictureBoxPlayer2Hand[i].Width, pictureBoxPlayer2Hand[i].Height);
+                pictureBoxPlayer2Hand[i].Image = ResizeImage(handplayer2[i].GetImage(myPlayer == 0 || myPlayer == 2), pictureBoxPlayer2Hand[i].Width, pictureBoxPlayer2Hand[i].Height);
             }
         }
 
         public void DisplayCurrentPlayerTurn(int turn)
         {
-            switch(turn) 
+            switch (turn)
             {
                 case 1:
                     labelCurrentTurn.Location = new Point(45, 145);
                     labelCurrentTurn.Show();
                     break;
+
                 case 2:
                     labelCurrentTurn.Location = new Point(45, 645);
                     labelCurrentTurn.Show();

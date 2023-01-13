@@ -13,6 +13,8 @@ namespace CardGameProject.Classes
 
         public bool CardKept { get; set; }
 
+        public int SwapedCardIndex { get; set; }
+
         public Player(string name)
         {
             Name = name;

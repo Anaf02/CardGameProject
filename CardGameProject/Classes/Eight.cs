@@ -1,5 +1,4 @@
 ﻿using CardGameProject.Properties;
-using System;
 using System.Drawing;
 
 namespace CardGameProject.Classes

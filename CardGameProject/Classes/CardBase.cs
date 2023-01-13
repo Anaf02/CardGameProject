@@ -1,7 +1,6 @@
 ﻿using CardGameProject.Properties;
 using System;
 using System.Drawing;
-using System.Security;
 
 namespace CardGameProject.Classes
 {

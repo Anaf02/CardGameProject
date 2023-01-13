@@ -30,6 +30,10 @@ namespace CardGameProject.Classes
 
         protected Random rand;
 
+        protected int firstDice;
+
+        protected int secondDice;
+        protected bool sabaccWin;
 
         public Game(Table table)
         {
@@ -56,7 +60,6 @@ namespace CardGameProject.Classes
             table.btnWinPlayer1.Text = "Player 1 Wins!";
             table.btnWinPlayer2.Text = "Player 2 Wins!";
         }
-
 
         public virtual void CreateDeck()
         {
@@ -106,7 +109,7 @@ namespace CardGameProject.Classes
         public virtual void StartGame()
         {
             CreateDeck();
-            
+
             InitialPhase();
         }
 
@@ -122,6 +125,7 @@ namespace CardGameProject.Classes
             Two.BetMoney(150);
             SabaccPot += 100;
             MainPot += 200;
+            sabaccWin = false;
             One.ResetLastBet();
             Two.ResetLastBet();
             table.DisplayCurrentGamePhase(currentRound, currentPhase);
@@ -149,6 +153,7 @@ namespace CardGameProject.Classes
                     if (currentRound == 4)
                     {
                         currentPhase = GamePhase.Reveal;
+                        table.DisplayHands(One.Hand, Two.Hand, 0);
                     }
                     else
                     {
@@ -157,13 +162,15 @@ namespace CardGameProject.Classes
                     break;
 
                 case GamePhase.Reveal:
-                    InitialPhase();
+                    {
+                        InitialPhase();
+                    }
                     break;
 
                 default:
                     break;
             }
-            One.ActionPerformed = false; 
+            One.ActionPerformed = false;
             Two.ActionPerformed = false;
             table.DisplayCurrentGamePhase(currentRound, currentPhase);
         }
@@ -173,6 +180,7 @@ namespace CardGameProject.Classes
             GetPlayer().ActionPerformed = true;
             playerTurn = playerTurn == 1 ? 2 : 1;
             table.DisplayCurrentPlayerTurn(playerTurn);
+            table.Refresh();
         }
 
         protected virtual Player GetPlayer(bool opposingPlayer = false)
@@ -229,24 +237,27 @@ namespace CardGameProject.Classes
         {
             currentPlayer = GetPlayer();
             var opposingPlayer = GetPlayer(true);
-            var betDialog = new BetDialog(opposingPlayer.LastBet != 0 ? opposingPlayer.LastBet - currentPlayer.LastBet : 50, currentPlayer.Wallet);
-            var result = betDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
+            if (currentPlayer.Wallet > 0)
             {
-                currentPlayer.BetMoney(betDialog.BetValue);
-                table.DisplayWallets(One, Two);
-                MainPot += betDialog.BetValue;
-                table.DisplayMainPot(MainPot);
+                var betDialog = new BetDialog(opposingPlayer.LastBet != 0 ? opposingPlayer.LastBet - currentPlayer.LastBet : 50, currentPlayer.Wallet);
+                var result = betDialog.ShowDialog();
 
-                GetPlayer(true).ActionPerformed = false;
+                if (result == DialogResult.OK)
+                {
+                    currentPlayer.BetMoney(betDialog.BetValue);
+                    table.DisplayWallets(One, Two);
+                    MainPot += betDialog.BetValue;
+                    table.DisplayMainPot(MainPot);
 
-                ChangePlayerTurn();
-            }
+                    GetPlayer(true).ActionPerformed = false;
 
-            if (AllPlayersPerformedActions())
-            {
-                ChangeGamePhase();
+                    ChangePlayerTurn();
+                }
+
+                if (AllPlayersPerformedActions())
+                {
+                    ChangeGamePhase();
+                }
             }
         }
 
@@ -307,7 +318,7 @@ namespace CardGameProject.Classes
             {
                 currentPlayer.CardKept = true;
             }
-            
+
             table.DisplayHands(One.Hand, Two.Hand);
             table.DisplayDiscardPile(DiscardPile.Peek());
 
@@ -331,7 +342,8 @@ namespace CardGameProject.Classes
 
         public virtual void btnCheck_Click(object sender, EventArgs e)
         {
-            if (One.LastBet == Two.LastBet)
+            currentPlayer = GetPlayer();
+            if (One.LastBet == Two.LastBet || currentPlayer.Wallet == 0)
             {
                 ChangePlayerTurn();
 
@@ -350,9 +362,10 @@ namespace CardGameProject.Classes
 
             if (result == DialogResult.OK)
             {
-                DiscardPile.Push(currentPlayer.Hand.ElementAt(chooseCardDialog.CardId - 1));
-                currentPlayer.Hand.RemoveAt(chooseCardDialog.CardId - 1);
-                currentPlayer.Hand.Insert(chooseCardDialog.CardId - 1, Deck.Pop());
+                currentPlayer.SwapedCardIndex = chooseCardDialog.CardId - 1;
+                DiscardPile.Push(currentPlayer.Hand.ElementAt(currentPlayer.SwapedCardIndex));
+                currentPlayer.Hand.RemoveAt(currentPlayer.SwapedCardIndex);
+                currentPlayer.Hand.Insert(currentPlayer.SwapedCardIndex, Deck.Pop());
                 ChangePlayerTurn();
             }
             table.DisplayHands(One.Hand, Two.Hand);
@@ -372,9 +385,11 @@ namespace CardGameProject.Classes
             if (result == DialogResult.OK)
             {
                 var topDiscard = DiscardPile.Pop();
-                DiscardPile.Push(currentPlayer.Hand.ElementAt(chosenCardDialog.CardId - 1));
-                currentPlayer.Hand.RemoveAt(chosenCardDialog.CardId - 1);
-                currentPlayer.Hand.Insert(chosenCardDialog.CardId - 1, topDiscard);
+                currentPlayer.SwapedCardIndex = chosenCardDialog.CardId - 1;
+                DiscardPile.Push(currentPlayer.Hand.ElementAt(currentPlayer.SwapedCardIndex));
+
+                currentPlayer.Hand.RemoveAt(currentPlayer.SwapedCardIndex);
+                currentPlayer.Hand.Insert(currentPlayer.SwapedCardIndex, topDiscard);
                 ChangePlayerTurn();
             }
             table.DisplayHands(One.Hand, Two.Hand);
@@ -390,8 +405,8 @@ namespace CardGameProject.Classes
             One.ResetLastBet();
             Two.ResetLastBet();
 
-            var firstDice = rand.Next(1, 7);
-            var secondDice = rand.Next(1, 7);
+            firstDice = rand.Next(1, 7);
+            secondDice = rand.Next(1, 7);
 
             var diceResultDialog = new DiceResultDialog(firstDice, secondDice);
             diceResultDialog.ShowDialog();
@@ -430,12 +445,14 @@ namespace CardGameProject.Classes
             {
                 One.AddMoney(SabaccPot);
                 SabaccPot = 0;
+                sabaccWin = true;
             }
             table.DisplayMainPot(MainPot);
             table.DisplaySabaccPot(SabaccPot);
             table.DisplayWallets(One, Two);
             ChangeGamePhase();
         }
+
         public virtual void btnWinPlayer2_Click(object sender, EventArgs e)
         {
             Two.AddMoney(MainPot);
@@ -444,10 +461,11 @@ namespace CardGameProject.Classes
             {
                 Two.AddMoney(SabaccPot);
                 SabaccPot = 0;
+                sabaccWin = true;
             }
             table.DisplayMainPot(MainPot);
             table.DisplaySabaccPot(SabaccPot);
-            table.DisplayWallets(One,Two);
+            table.DisplayWallets(One, Two);
             ChangeGamePhase();
         }
     }

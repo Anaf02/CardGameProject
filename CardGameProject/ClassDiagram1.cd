@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="CardGameProject.Classes.CardBase">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Classes\CardBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.CardFactory">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Classes\CardFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Client">
+    <Position X="12.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAgIAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Classes\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Dice">
+    <Position X="18" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Dice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Eight">
+    <Position X="20.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Eight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Five">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Five.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Four">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Four.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Game">
+    <Position X="14.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAgwgAgARAAQEhSQAgiAAkJAKARAhABAHEQIA=</HashCode>
+      <FileName>Classes\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.NetworkGame">
+    <Position X="12.25" Y="5" Width="1.5" />
+    <Members>
+      <Field Name="playerName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAUgAgAQAABEhAQAggAEAIAAAAAAABABAQAE=</HashCode>
+      <FileName>Classes\NetworkGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Nine">
+    <Position X="22.25" Y="2" Width="1.5" />
+    <InheritanceLine Type="CardGameProject.Classes.CardBase" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.938" Y="0.5" />
+        <Point X="17.938" Y="0.377" />
+        <Point X="22.127" Y="0.377" />
+        <Point X="22.127" Y="2.688" />
+        <Point X="22.25" Y="2.688" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Nine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.One">
+    <Position X="13.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\One.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Player">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAIAACIoAAAAgAAAAAQAACAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Classes\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Seven">
+    <Position X="18.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Seven.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Six">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <InheritanceLine Type="CardGameProject.Classes.CardBase" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="2.891" />
+        <Point X="17.75" Y="3.2" />
+        <Point X="19.562" Y="3.2" />
+        <Point X="19.562" Y="3.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Six.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Table">
+    <Position X="20" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIFACAAAoCACAAAFBAABkSABCAAIBAAKABgQsAQoU=</HashCode>
+      <FileName>Classes\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Ten">
+    <Position X="20.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Ten.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Three">
+    <Position X="13.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Three.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Two">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <InheritanceLine Type="CardGameProject.Classes.CardBase" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="0.5" />
+        <Point X="17.75" Y="0.377" />
+        <Point X="13.373" Y="0.377" />
+        <Point X="13.373" Y="2.375" />
+        <Point X="13.25" Y="2.375" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Two.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Classes.Zero">
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Zero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardGameProject.Program">
+    <Position X="18" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
